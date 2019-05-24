@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exemplo</title>
+</head>
+<link rel="stylesheet" type="text/css" href="estilo.css">
+
+<script type="text/javascript">
+	var audioAcertou = new Audio();
+	var audioErrou = new Audio();
+	audioAcertou.src = "aplausos.mp3";
+	audioErrou.src = "derrota.mp3";
+	
+  var perguntas = ['Qual o maior país do mundo?', 'Qual a banda mais famosa do mundo?', 'Qual a série mais vista da história?',
+                    'Em que ano foi o último título mundial do Brasil no futebol?', 'Qual o nome do jogo que é feito em cubos?'];
+  var respostaCerta = ['Rússia', 'The Beatles', 'The Walking Dead', '2002', 'Minecraft']
+  
+  var alter1 = ['Estados Unidos', 'Guns and Roses', 'How I Met Your Mother', '2006', 'Counter-Strike'];
+  var alter2 = ['China', 'Queen', 'Prison Break', '1998', 'GTA V']; 
+  var alter3 = ['Brasil', 'Rolling Stones', 'Game Of Thrones', '2010', 'Fifa 19'];  
+            
+  var acertou = new Boolean(true);          
+  var i = 0;
+ 
+ function VerificaResposta(element){
+
+       var respClick = element.innerHTML;
+
+      if(respostaCerta[i] == respClick){   // se acertou
+          element.style.color = "green";
+          audioAcertou.play();
+          acertou = true;
+
+          if(i == 4){
+            i = 0;
+          }
+          i = i + 1;
+      }
+      else{
+            element.style.color = "red";
+           audioErrou.play();
+       }
+ 	}
+
+
+ 	function ProxPergunt(){
+    if(acertou)
+    {
+    acertou = false;  
+    document.getElementById('numPergunta').innerHTML = perguntas[i];
+    document.getElementById('alt1').style.color = "black";
+    document.getElementById('alt2').style.color = "black";
+    document.getElementById('alt3').style.color = "black";
+    document.getElementById('alt4').style.color = "black";
+     
+     if(i == 0){
+        document.getElementById('alt1').innerHTML = alter1[i]; 
+        document.getElementById('alt2').innerHTML = respostaCerta[i]; 
+        document.getElementById('alt3').innerHTML = alter2[i];
+        document.getElementById('alt4').innerHTML = alter3[i]; 
+     }
+
+    if(i == 1){
+        document.getElementById('alt1').innerHTML = alter1[i]; 
+        document.getElementById('alt2').innerHTML = respostaCerta[i]; 
+        document.getElementById('alt3').innerHTML = alter2[i]; 
+        document.getElementById('alt4').innerHTML = alter3[i]; 
+    }
+    else if(i == 2)
+    {
+      document.getElementById('alt1').innerHTML = respostaCerta[i]; 
+      document.getElementById('alt2').innerHTML = alter1[i]; 
+      document.getElementById('alt3').innerHTML = alter2[i]; 
+      document.getElementById('alt4').innerHTML = alter3[i]; 
+    }
+    else if (i == 3)
+    {
+      document.getElementById('alt1').innerHTML = alter1[i]; 
+      document.getElementById('alt2').innerHTML = alter2[i]; 
+      document.getElementById('alt3').innerHTML = respostaCerta[i]; 
+      document.getElementById('alt4').innerHTML = alter3[i]; 
+    }
+   else if(i == 4)
+    {
+      document.getElementById('alt1').innerHTML = alter1[i];  
+      document.getElementById('alt2').innerHTML = respostaCerta[i]; 
+      document.getElementById('alt3').innerHTML = alter2[i]; 
+      document.getElementById('alt4').innerHTML = alter3[i]; 
+    }
+  }
+  else 
+    alert('Você deve acertar a pergunta primeiro!');
+ 	}
+
+  function Ganhou(){
+    document.getElementTagName(body).innerHTML = "Você acertou "
+  }
+
+</script>
+<body>
+  <table>
+	  <tr><th id="numPergunta">Pergunta 1 :</th></tr>
+	  <tr><td  id= 'alt1' onclick="VerificaResposta(this);">Resposta 1</td></tr>
+	  <tr><td  id= 'alt2' onclick="VerificaResposta(this);">Resposta 2</td></tr>
+	  <tr><td  id= 'alt3'  onclick="VerificaResposta(this);">Resposta 3</td></tr>
+	  <tr><td  id= 'alt4' onclick="VerificaResposta(this);">Resposta 4</td></tr>
+  </table>
+
+  <button id="btn1" onclick="ProxPergunt();">Próximo</button>
+</body>
+</html>
