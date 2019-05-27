@@ -27,6 +27,15 @@
 		  color: white;
 		}
 
+		button{
+		   margin-left: 50%;
+		   border-radius: 5px;
+		   color: black;
+		   background-color: green;
+		   height: 60px;
+		   width: 70px;
+		}
+
 		
 		#link {
 			margin: auto;

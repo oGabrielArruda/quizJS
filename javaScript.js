@@ -102,5 +102,5 @@ var audioErrou = new Audio();
         else if(qtsResp < 7)
           alert('Você podia ter ido melhor!');
         else
-          alert('Você foi mal!');
+          alert('Você não foi bem!');
   }
