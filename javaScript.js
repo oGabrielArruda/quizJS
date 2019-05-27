@@ -4,12 +4,13 @@ var audioErrou = new Audio();
 	audioErrou.src = "derrota.mp3";
 	
   var perguntas = ['Qual o maior país do mundo?', 'Qual a banda mais famosa do mundo?', 'Qual a série mais vista da história?',
-                    'Em que ano foi o último título mundial do Brasil no futebol?', 'Qual o nome do jogo que é feito em cubos?'];
-  var respostaCerta = ['Rússia', 'The Beatles', 'The Walking Dead', '2002', 'Minecraft']
+                    'Em que ano foi o último título mundial do Brasil no futebol?', 'Qual o nome do jogo que é feito em cubos?','Quem é o rei do pop?',
+                       'apresentador que jogava frutas nas pessoas:'];
+  var respostaCerta = ['Rússia', 'The Beatles', 'The Walking Dead', '2002', 'Minecraft', 'Michael Jackson', 'Chacrinha']
   
-  var alter1 = ['Estados Unidos', 'Guns and Roses', 'How I Met Your Mother', '2006', 'Counter-Strike'];
-  var alter2 = ['China', 'Queen', 'Prison Break', '1998', 'GTA V']; 
-  var alter3 = ['Brasil', 'Rolling Stones', 'Game Of Thrones', '2010', 'Fifa 19'];  
+  var alter1 = ['Estados Unidos', 'Guns and Roses', 'How I Met Your Mother', '2006', 'Counter-Strike', 'Prince', 'Silvio Santos'];
+  var alter2 = ['China', 'Queen', 'Prison Break', '1998', 'GTA V', 'Bruno Mars', 'Luciano Huck']; 
+  var alter3 = ['Brasil', 'Rolling Stones', 'Game Of Thrones', '2010', 'Fifa 19', 'Freddie Mercury', 'Renato Aragão'];  
             
   var acertou = new Boolean(true);
   var respostasDadas = 0;         
@@ -25,7 +26,7 @@ var audioErrou = new Audio();
           audioAcertou.play();
           acertou = true;
         
-          if(i == 4){
+          if(i == 6){
             Ganhou(respostasDadas);
             respostasDadas = 0;
             i = 0;
@@ -91,15 +92,29 @@ var audioErrou = new Audio();
       document.getElementById('alt3').innerHTML = alter2[i]; 
       document.getElementById('alt4').innerHTML = alter3[i]; 
     }
+    else if(i == 5)
+    {
+      document.getElementById('alt1').innerHTML = alter1[i];  
+      document.getElementById('alt2').innerHTML = respostaCerta[i]; 
+      document.getElementById('alt3').innerHTML = alter2[i]; 
+      document.getElementById('alt4').innerHTML = alter3[i]; 
+    }
+    else if(i == 6)
+    {
+      document.getElementById('alt1').innerHTML = alter1[i];  
+      document.getElementById('alt2').innerHTML = respostaCerta[i]; 
+      document.getElementById('alt3').innerHTML = alter2[i]; 
+      document.getElementById('alt4').innerHTML = alter3[i]; 
+    }
   }
   else 
     alert('Você deve acertar a pergunta primeiro!');
  	}
 
   function Ganhou(qtsResp){
-        if(qtsResp == 5)
+        if(qtsResp == 7)
           alert('Parabéns você acertou todas de primeira!');
-        else if(qtsResp < 7)
+        else if(qtsResp < 9)
           alert('Você podia ter ido melhor!');
         else
           alert('Você não foi bem!');
